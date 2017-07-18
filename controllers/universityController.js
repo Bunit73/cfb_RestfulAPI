@@ -28,7 +28,7 @@ exports.university_create_post = function (req, res, next) {
     req.sanitize('state').escape();
     req.sanitize('primary_color').escape();
 
-    const university;
+    let university;
     university = new University({
         name: req.body.name,
         nick_name: req.body.nick_name,
