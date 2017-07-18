@@ -1,0 +1,41 @@
+{
+  "name": "cfb-restfulapi",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "async": "^2.5.0",
+    "bluebird": "^3.5.0",
+    "body-parser": "~1.17.1",
+    "bunyan": "^1.8.10",
+    "compression": "^1.7.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "express-validator": "^3.2.1",
+    "hbs": "~4.0.1",
+    "helmet": "^3.6.1",
+    "mongoose": "^4.10.8",
+    "mongoose-unique-validator": "^1.0.5",
+    "morgan": "~1.8.1",
+    "node-sass-middleware": "0.9.8",
+    "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "chai": "^4.1.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.2.0",
+    "grunt": "^1.0.1",
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0"
+  },
+  "description": "College Football Restfull API",
+  "main": "app.js",
+  "author": "Ben Ford",
+  "license": "MIT"
+}
