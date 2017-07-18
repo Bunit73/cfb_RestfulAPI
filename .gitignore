@@ -1,4 +1,6 @@
 /lib/dbCon.js
-/node_modules
 .idea/dbnavigator.xml
 .idea/workspace.xml
+/node_modules/
+public/images/
+public/javascripts/
