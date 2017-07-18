@@ -11,7 +11,7 @@ const UniversitySchema = Schema({
   state: { type: String, required: true },
   team: [{ type: Schema.ObjectId, ref: 'Team' }],
   primary_color: { type: String, required: true },
-  secondary_color: { type: String },
+  secondary_color: { type: String, required: true },
   trinary_color: { type: String },
 });
 
