@@ -88,30 +88,6 @@ describe('Create a University', () => {
   });
 });
 
-/* TEST DOESNT WORK
-describe('Update a university', () => {
-    it("should update a university by id", (done) =>{
-        let uniInfo = {
-            "name": "Central Michigan",
-            "nick_name": "Chippewas",
-            "website": "http:&#x2F;&#x2F;www.cmich.edu",
-            "city": "Mount Pleasant",
-            "state": "Michigan",
-            "primary_color": "6a0032",
-            "secondary_color": "ffc82e",};
-        let UniMock = sinon.mock(new University({ completed: true}));
-        let uni = UniMock.object;
-        var expectedResult = { status: true };
-        // expectedResult.primary_color = 'maroon';
-        UniMock.expects('save').once().withArgs({_id: 12345}).yields(null, expectedResult);
-        uni.save((err,result) => {
-            UniMock.verify();
-            UniMock.restore();
-            expect(result.primary_color).to.equal('maroon');
-            done();
-        })
-    });
-});
-*/
+// TODO: Alter Test
 
-// TODO: Delete test
+// TODO: Delete Test
