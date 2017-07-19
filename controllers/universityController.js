@@ -4,9 +4,7 @@ const University = require('../models/university');
 exports.university_list = function (req, res, next) {
   University.find({})
         .exec((err, listUni) => {
-          if (err) {
-            return next(err);
-          }
+          if (err) { return next(err); }
           res.send(listUni);
         });
 };
@@ -87,7 +85,7 @@ exports.university_patch = function (req, res, next) {
         university.name = req.body.name || university.name;
         university.nick_name = req.body.nick_name || university.nick_name;
         university.website = req.body.website || university.website;
-        university.city = req.body.city || university.body.city;
+        university.city = req.body.city || university.city;
         university.state = req.body.state || req.state;
         university.team = req.body.team || req.team;
         university.primary_color = req.body.primary_color || university.primary_color;
