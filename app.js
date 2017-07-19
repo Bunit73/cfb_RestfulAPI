@@ -8,11 +8,11 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const expressValidator = require('express-validator');
-const blueBird = require('bluebird');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
-const university = require('./routes/university');
+const universities = require('./routes/university');
+const stadiums = require('./routes/stadiums');
 
 const compression = require('compression');
 const helmet = require('helmet');
@@ -22,7 +22,7 @@ const app = express();
 app.use(helmet());
 
 // Mongoose Conn
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 mongoose.Promise = require('bluebird');
 const dbCon = require('./lib/dbCon');
@@ -55,7 +55,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/universities', university);
+app.use('/universities', universities);
+app.use('/stadiums', stadiums);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
