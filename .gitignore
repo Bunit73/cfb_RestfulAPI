@@ -1,4 +1,5 @@
 /lib/dbCon.js
+/lib/jwt/jwtConfig.js
 .idea/dbnavigator.xml
 .idea/workspace.xml
 /node_modules/
