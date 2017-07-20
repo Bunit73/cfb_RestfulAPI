@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/users');
+const util = require('util');
 
 // Create a user
 exports.user_create = function (req, res, next) {
