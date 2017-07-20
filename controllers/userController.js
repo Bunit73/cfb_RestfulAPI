@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const User = require('../models/users');
 
 // Create a user
@@ -32,13 +33,9 @@ exports.user_create = function (req, res, next) {
 };
 
 exports.user_login = function (req, res, next) {
-  req.checkBody('first_name', 'First name must not be empty').notEmpty();
-  req.checkBody('last_name', 'Last name must not be empty').notEmpty();
   req.checkBody('password', 'Password must not be empty').notEmpty();
   req.checkBody('email', 'Email must not be empty').notEmpty();
 
-  req.sanitize('first_name').escape();
-  req.sanitize('last_name').escape();
   req.sanitize('email').escape();
 
   let user;
@@ -59,7 +56,13 @@ exports.user_login = function (req, res, next) {
           user.comparePassword(req.body.password, (err, isMatch) => {
             if (err) { return next(err); }
             if (isMatch) {
-              res.sendStatus(200);
+              const token = jwt.sign(user, req.app.get('jwtSecret'),{
+                expiresIn: '1d'
+              });
+              res.json({
+                  success: true,
+                  token: token
+              }).status(200);
             } else {
               res.sendStatus(401);
             }

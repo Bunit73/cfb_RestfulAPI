@@ -8,7 +8,11 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const expressValidator = require('express-validator');
+
+// JWT
 const jwt = require('jsonwebtoken');
+const jwtConfig = require('./lib/jwt/jwtConfig');
+const jwtAuth = require('./lib/jwt/jwtAuthenticator');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
@@ -19,6 +23,8 @@ const compression = require('compression');
 const helmet = require('helmet');
 
 const app = express();
+
+app.set('jwtSecret', jwtConfig.secret);
 
 app.use(helmet());
 
@@ -56,8 +62,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/universities', universities);
-app.use('/stadiums', stadiums);
+
+app.use(jwtAuth.protectedChecker);
+app.use('/universities', universities.protected);
+app.use('/stadiums', stadiums.protected);
+
+app.use(jwtAuth.adminChecker);
+app.use('/universities', universities.admin);
+app.use('/stadiums', stadiums.admin);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
