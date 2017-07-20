@@ -1,4 +1,5 @@
 const Stadium = require('../models/stadium');
+const util = require('util');
 
 // Display all stadiums
 exports.stadium_list = function (req, res, next) {
