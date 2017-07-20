@@ -14,7 +14,7 @@ const UserSchema = Schema({
   last_name: { type: String, required: true },
   password: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  api_token: { type: String, default: () => {  return base64url(crypto.randomBytes(32)); }, unique: true },
+  api_token: { type: String, default: () => base64url(crypto.randomBytes(32)), unique: true },
 });
 
 /**

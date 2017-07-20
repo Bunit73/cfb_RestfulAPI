@@ -32,6 +32,7 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = require('bluebird');
 const dbCon = require('./lib/dbCon');
+
 const dbUrl = (process.env.NODE_ENV === 'production') ? dbCon.production.database.host : dbCon.development.database.host;
 mongoose.connect(dbUrl, { useMongoClient: true });
 const db = mongoose.connection;

@@ -19,7 +19,7 @@ routerAdmin.post('/', stadiumController.statdium_create);
 routerProtected.get('/', stadiumController.stadium_list);
 
 module.exports = {
-    unprotected: router,
-    protected: routerProtected,
-    admin: routerAdmin
+  unprotected: router,
+  protected: routerProtected,
+  admin: routerAdmin,
 };
