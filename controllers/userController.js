@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/users');
+const util = require('util');
 
 // Create a user
 exports.user_create = function (req, res, next) {
@@ -24,6 +25,7 @@ exports.user_create = function (req, res, next) {
     if (!result.isEmpty()) {
       res.status(400).send(`There have been validation errors: ${util.inspect(result.array())}`);
     } else {
+      console.log(user);
       user.save((err, user) => {
         if (err) { return next(err); }
         res.send(user).status(201);
