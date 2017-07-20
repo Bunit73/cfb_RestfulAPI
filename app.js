@@ -12,12 +12,11 @@ const expressValidator = require('express-validator');
 // JWT
 const jwt = require('jsonwebtoken');
 const jwtConfig = require('./lib/jwt/jwtConfig');
-const jwtAuth = require('./lib/jwt/jwtAuthenticator');
+
 
 const index = require('./routes/index');
 const users = require('./routes/users');
-const universities = require('./routes/university');
-const stadiums = require('./routes/stadiums');
+
 
 const compression = require('compression');
 const helmet = require('helmet');
@@ -63,13 +62,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
-app.use(jwtAuth.protectedChecker);
-app.use('/universities', universities.protected);
-app.use('/stadiums', stadiums.protected);
+const v1 = require('./routes/v1/v1')(app);
 
-app.use(jwtAuth.adminChecker);
-app.use('/universities', universities.admin);
-app.use('/stadiums', stadiums.admin);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
