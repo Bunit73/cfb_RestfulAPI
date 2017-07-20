@@ -5,7 +5,7 @@ const routerProtected = express.Router();
 const routerAdmin = express.Router();
 
 // controller
-const universityController = require('../controllers/universityController');
+const universityController = require('../../controllers/universityController');
 
 /* Single University Methods */
 routerProtected.get('/:id', universityController.university_detail);

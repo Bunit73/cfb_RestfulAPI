@@ -5,7 +5,7 @@ const routerProtected = express.Router();
 const routerAdmin = express.Router();
 
 // controller
-const stadiumController = require('../controllers/stadiumController');
+const stadiumController = require('../../controllers/stadiumController');
 
 /* Single Stadium Methods */
 routerProtected.get('/:id', stadiumController.stadium_detail);
