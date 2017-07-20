@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const expressValidator = require('express-validator');
+const jwt = require('jsonwebtoken');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
