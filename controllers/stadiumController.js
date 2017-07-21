@@ -19,7 +19,7 @@ exports.stadium_detail = function (req, res, next) {
 };
 
 // Create a stadium
-exports.statdium_create = function (req, res, next) {
+exports.stadium_create = function (req, res, next) {
   req.checkBody('name', 'Name must not be empty').notEmpty();
   req.checkBody('city', 'City must not be empty').notEmpty();
   req.checkBody('state', 'State must not be empty').notEmpty();
@@ -51,7 +51,7 @@ exports.statdium_create = function (req, res, next) {
 };
 
 // Delete a stadium
-exports.statdium_delete = function (req, res, next) {
+exports.stadium_delete = function (req, res, next) {
   Stadium.findByIdAndRemove(req.params.id, (err) => {
     if (err) { return next(err); }
     res.sendStatus(204);
