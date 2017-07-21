@@ -9,7 +9,7 @@ const StadiumSchema = Schema({
   capacity: { type: Number },
   city: { type: String, required: true },
   state: { type: String, required: true },
-});
+}, { collection: 'stadiums' });
 
 StadiumSchema
     .virtual('url')
