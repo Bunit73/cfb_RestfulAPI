@@ -19,7 +19,7 @@ routerAdmin.delete('/:id', universityController.university_delete);
 routerProtected.get('/', universityController.university_list);
 
 module.exports = {
-    unprotected: router,
-    protected: routerProtected,
-    admin: routerAdmin
+  unprotected: router,
+  protected: routerProtected,
+  admin: routerAdmin,
 };

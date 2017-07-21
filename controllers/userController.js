@@ -57,12 +57,12 @@ exports.user_login = function (req, res, next) {
           user.comparePassword(req.body.password, (err, isMatch) => {
             if (err) { return next(err); }
             if (isMatch) {
-              const token = jwt.sign(user, req.app.get('jwtSecret'),{
-                expiresIn: '1d'
+              const token = jwt.sign(user, req.app.get('jwtSecret'), {
+                expiresIn: '1d',
               });
               res.json({
-                  success: true,
-                  token: token
+                success: true,
+                token,
               }).status(200);
             } else {
               res.sendStatus(401);

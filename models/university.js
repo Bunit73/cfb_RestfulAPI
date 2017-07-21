@@ -18,7 +18,7 @@ const UniversitySchema = Schema({
 // Virtual for this university instance
 UniversitySchema
     .virtual('url')
-    .get(() => `/university/${this._id}`);
+    .get(function () { `/university/${this._id}`; });
 
 UniversitySchema.plugin(uniqueValidator);
 module.exports = mongoose.model('University', UniversitySchema);
