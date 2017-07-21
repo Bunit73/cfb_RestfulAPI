@@ -26,6 +26,7 @@ exports.university_create_post = function (req, res, next) {
   req.checkBody('city', 'City must not be empty.').notEmpty();
   req.checkBody('state', 'State must not be empty.').notEmpty();
   req.checkBody('primary_color', 'Primary Color must not be empty.').notEmpty();
+  req.checkBody('secondary_color', 'Secondary Color must not be empty.').notEmpty();
 
   req.sanitize('name').escape();
   req.sanitize('nick_name').escape();
@@ -33,6 +34,8 @@ exports.university_create_post = function (req, res, next) {
   req.sanitize('city').escape();
   req.sanitize('state').escape();
   req.sanitize('primary_color').escape();
+  req.sanitize('secondary_color').escape();
+  req.sanitize('trinary_color').escape();
 
   let university;
   university = new University({
