@@ -13,9 +13,12 @@ routerProtected.get('/:id', teamController.team_detail);
 
 // Admin Routes
 routerAdmin.post('/', teamController.create_team);
+routerAdmin.delete('/', teamController.create_team);
+routerAdmin.patch('/', teamController.team_patch);
+routerAdmin.put('/', teamController.team_put);
 
 module.exports = {
-    unprotected: router,
-    protected: routerProtected,
-    admin: routerAdmin,
+  unprotected: router,
+  protected: routerProtected,
+  admin: routerAdmin,
 };
