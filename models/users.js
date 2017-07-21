@@ -15,7 +15,7 @@ const UserSchema = Schema({
   password: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   api_token: { type: String, default: () => base64url(crypto.randomBytes(32)), unique: true },
-});
+}, { collection: 'users' });
 
 /**
  * Salt and hash the users password
