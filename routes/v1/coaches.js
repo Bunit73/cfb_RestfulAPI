@@ -8,8 +8,8 @@ const routerAdmin = express.Router();
 const coachController = require('../../controllers/coachController');
 
 // protected routes
+routerProtected.get('/', coachController.coach_list);
 routerProtected.get('/:id', coachController.coach_detail);
-routerProtected.get('/:id', coachController.coach_list);
 
 // admin routes
 routerAdmin.patch('/:id', coachController.coach_patch);

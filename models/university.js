@@ -13,7 +13,7 @@ const UniversitySchema = Schema({
   primary_color: { type: String, required: true },
   secondary_color: { type: String, required: true },
   trinary_color: { type: String },
-});
+}, { collection: 'universities' });
 
 // Virtual for this university instance
 UniversitySchema
