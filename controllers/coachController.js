@@ -38,7 +38,7 @@ exports.coach_create = function (req, res, next) {
     if (!result.isEmpty()) {
       res.status(400).send(`There have been validation errors: ${util.inspect(result.array())}`);
     } else {
-      coach.sace((err, coach) => {
+      coach.save((err, coach) => {
         if (err) { return next(err); }
         res.send(coach).status(201);
       });
