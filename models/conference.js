@@ -17,4 +17,4 @@ ConferenceSchema
     .get(function () { `/conferences/${this._id}`; });
 
 ConferenceSchema.plugin(uniqueValidator);
-module.exports = mongoose.models('Conference', ConferenceSchema);
+module.exports = mongoose.model('Conference', ConferenceSchema);
