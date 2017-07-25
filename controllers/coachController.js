@@ -74,7 +74,7 @@ exports.coach_patch = function (req, res, next) {
   });
 };
 
-// Handle PUt
+// Handle Put
 
 exports.coach_put = function (req, res, next) {
   req.checkBody('first_name', 'First Name must not be empty').notEmpty();

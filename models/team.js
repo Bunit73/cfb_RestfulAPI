@@ -9,7 +9,7 @@ const TeamSchema = Schema({
   stadium: { type: Schema.ObjectId, ref: 'Stadium' },
   seasons: [{ type: Schema.ObjectId, ref: 'Season' }],
   games: [{ type: Schema.ObjectId, ref: 'Game' }],
-  conf_season: { type: Schema.ObjectId, ref: 'ConfSeason' },
+  conf_season: [{ type: Schema.ObjectId, ref: 'ConfSeason' }],
   current_conf: { type: Schema.ObjectId, ref: 'Conference' },
   university: { type: Schema.ObjectId, ref: 'University',  required: true, unique: true },
 }, { collection: 'Teams' });
