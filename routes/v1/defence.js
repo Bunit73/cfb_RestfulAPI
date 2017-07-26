@@ -15,7 +15,7 @@ routerAdmin.patch('/:id', defenceController.defence_patch);
 routerAdmin.delete('/:id', defenceController.defence_delete);
 
 module.exports = {
-    unprotected: router,
-    protected: routerProtected,
-    admin: routerAdmin,
+  unprotected: router,
+  protected: routerProtected,
+  admin: routerAdmin,
 };
