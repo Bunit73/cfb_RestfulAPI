@@ -3,7 +3,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 
 const Schema = mongoose.Schema;
 
-const DefenceSchema = Schema({
+const DefenseSchema = Schema({
   game: { type: Schema.ObjectId, ref: 'GameSchema', required: true },
   player: { type: Schema.ObjectId, ref: 'PlayerSchema', required: true },
   solo_tackles: { type: Number, default: 0 },
@@ -11,11 +11,11 @@ const DefenceSchema = Schema({
   sacks: { type: Number, default: 0 },
   tol: { type: Number, default: 0 },
   interceptions: { type: Number, default: 0 },
-}, { collection: 'defence' });
+}, { collection: 'defense' });
 
-DefenceSchema
+DefenseSchema
     .virtual('url')
     .get(() => `/defence/${this._id}`);
 
-DefenceSchema.plugin(uniqueValidator);
-module.exports = mongoose.model('Defence', DefenceSchema);
+DefenseSchema.plugin(uniqueValidator);
+module.exports = mongoose.model('Defense', DefenseSchema);
