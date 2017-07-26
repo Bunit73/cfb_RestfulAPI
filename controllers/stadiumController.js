@@ -6,7 +6,7 @@ exports.stadium_list = function (req, res, next) {
   Stadium.find({})
         .exec((err, listStadium) => {
           if (err) { return next(err); }
-          res.send(listStadium);
+          res.send(listStadium).status(200);
         });
 };
 
