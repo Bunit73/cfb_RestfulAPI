@@ -80,11 +80,10 @@ exports.season_put = function (req, res, next) {
         season.conf_seasons = req.body.conf_seasons;
         season.games = req.body.games;
         season.champion = req.body.champion;
-      });
-
-      season.save((err, season) => {
-        if (err) { return next(err); }
-        res.send(season).status(200);
+        season.save((err, season) => {
+          if (err) { return next(err); }
+          res.send(season).status(200);
+        });
       });
     }
   });

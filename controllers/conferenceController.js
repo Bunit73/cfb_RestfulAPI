@@ -95,11 +95,11 @@ exports.conf_put = function (req, res, next) {
         conf.date_founded = req.body.date_founded;
         conf.website = req.body.website;
         conf.conf_season = req.body.conf_season;
-      });
 
-      conf.save((err, conf) => {
-        if (err) { return next(err); }
-        res.send(conf).status(200);
+        conf.save((err, conf) => {
+          if (err) { return next(err); }
+          res.send(conf).status(200);
+        });
       });
     }
   });

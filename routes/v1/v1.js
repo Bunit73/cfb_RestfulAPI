@@ -5,6 +5,8 @@ const teams = require('./teams');
 const confs = require('./conference');
 const seasons = require('./seasons');
 const passing = require('./passing');
+const rushing = require('./rushing');
+
 const jwtAuth = require('../../lib/jwt/jwtAuthenticator');
 
 module.exports = function (app) {
@@ -19,6 +21,7 @@ module.exports = function (app) {
   app.use('/v1/conferences', confs.protected);
   app.use('/v1/seasons', seasons.protected);
   app.use('/v1/passing', passing.protected);
+  app.use('/v1/rushing', rushing.protected);
 
   // Admin Routes
   app.use(jwtAuth.adminChecker);
@@ -29,4 +32,5 @@ module.exports = function (app) {
   app.use('/v1/conferences', confs.admin);
   app.use('/v1/seasons', confs.admin);
   app.use('/v1/passing', passing.admin);
+  app.use('/v1/rushing', rushing.admin);
 };

@@ -94,11 +94,10 @@ exports.coach_put = function (req, res, next) {
         coach.last_name = req.body.last_name;
         coach.alma_mater = req.body.alma_mater;
         coach.dob = req.body.dob;
-      });
-
-      coach.save((err, coach) => {
-        if (err) { return next(err); }
-        res.send(coach).status(200);
+        coach.save((err, coach) => {
+          if (err) { return next(err); }
+          res.send(coach).status(200);
+        });
       });
     }
   });

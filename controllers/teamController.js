@@ -66,11 +66,10 @@ exports.team_patch = function (req, res, next) {
     team.conf_season = req.body.conf_season || team.conf_season;
     team.current_conf = req.body.current_conf || team.current_conf;
     team.university = req.body.university || team.university;
-  });
-
-  team.save((err, team) => {
-    if (err) { return next(err); }
-    res.send(team).status(200);
+    team.save((err, team) => {
+      if (err) { return next(err); }
+      res.send(team).status(200);
+    });
   });
 };
 
