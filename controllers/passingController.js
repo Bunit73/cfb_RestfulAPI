@@ -60,6 +60,11 @@ exports.passing_patch = function (req, res, next) {
     passing.yards = req.body.yards || passing.yards;
     passing.touch_downs = req.body.touch_downs || passing.touch_downs;
     passing.interceptions = req.body.interceptions || passing.interceptions;
+
+    passing.save((err, passing) => {
+      if (err) { return next(err); }
+      res.send(passing).status(200);
+    });
   });
 };
 
@@ -80,10 +85,11 @@ exports.passing_put = function (req, res, next) {
         passing.yards = req.body.yards;
         passing.touch_downs = req.body.touch_downs;
         passing.interceptions = req.body.interceptions;
-      });
-      passing.save((err, passing) => {
-        if (err) { return next(err); }
-        res.send(passing).status(200);
+
+        passing.save((err, passing) => {
+          if (err) { return next(err); }
+          res.send(passing).status(200);
+        });
       });
     }
   });
