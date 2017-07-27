@@ -9,6 +9,7 @@ const rushing = require('./rushing');
 const receiving = require('./receiving');
 const kicking = require('./kicking');
 const defense = require('./defense');
+const punting = require('./punting');
 
 const jwtAuth = require('../../lib/jwt/jwtAuthenticator');
 
@@ -28,6 +29,7 @@ module.exports = function (app) {
   app.use('/v1/receiving', receiving.protected);
   app.use('/v1/defence', defense.protected);
   app.use('/v1/kicking', kicking.protected);
+  app.use('/v1/punt', punting.protected);
 
   // Admin Routes
   app.use(jwtAuth.adminChecker);
@@ -42,4 +44,5 @@ module.exports = function (app) {
   app.use('/v1/receiving', receiving.admin);
   app.use('/v1/kicking', kicking.admin);
   app.use('/v1/defence', defense.admin);
+  app.use('/v1/punt', punting.admin);
 };
