@@ -36,7 +36,7 @@ exports.recv_create = function (req, res, next) {
     } else {
       recv.save((err, recv) => {
         if (err) { return next(err); }
-        res.send(recv).stat(201);
+        res.send(recv).status(201);
       });
     }
   });
