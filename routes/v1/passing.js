@@ -19,7 +19,7 @@ routerAdmin.post('/', passingController.create_passing);
 
 
 module.exports = {
-    unprotected: router,
-    protected: routerProtected,
-    admin: routerAdmin,
+  unprotected: router,
+  protected: routerProtected,
+  admin: routerAdmin,
 };
